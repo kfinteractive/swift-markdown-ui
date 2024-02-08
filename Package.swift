@@ -22,11 +22,11 @@ let package = Package(
     .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.10.0"),
   ],
   targets: [
-    .target(name: "cmark-gfm"),
+    .target(name: "cmark-gfm-internal"),
     .target(
       name: "MarkdownUI",
       dependencies: [
-        "cmark-gfm",
+        "cmark-gfm-internal",
         .product(name: "NetworkImage", package: "NetworkImage"),
       ]
     ),

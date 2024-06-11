@@ -135,11 +135,11 @@ extension InlineNode {
     case .html:
       self = .html(unsafeNode.literal ?? "")
     case .emphasis:
-      self = .emphasis(children: unsafeNode.children.compactMap(InlineNode.init(unsafeNode:)))
+      self = .emphasis(unsafeNode.children.compactMap(InlineNode.init(unsafeNode:)))
     case .strong:
-      self = .strong(children: unsafeNode.children.compactMap(InlineNode.init(unsafeNode:)))
+      self = .strong(unsafeNode.children.compactMap(InlineNode.init(unsafeNode:)))
     case .strikethrough:
-      self = .strikethrough(children: unsafeNode.children.compactMap(InlineNode.init(unsafeNode:)))
+      self = .strikethrough(unsafeNode.children.compactMap(InlineNode.init(unsafeNode:)))
     case .link:
       self = .link(
         destination: unsafeNode.url ?? "",

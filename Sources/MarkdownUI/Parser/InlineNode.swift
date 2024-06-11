@@ -6,9 +6,9 @@ enum InlineNode: Hashable {
   case lineBreak
   case code(String)
   case html(String)
-  case emphasis(children: [InlineNode])
-  case strong(children: [InlineNode])
-  case strikethrough(children: [InlineNode])
+  case emphasis(_ children: [InlineNode])
+  case strong(_ children: [InlineNode])
+  case strikethrough(_ children: [InlineNode])
   case link(destination: String, children: [InlineNode])
   case image(source: String, children: [InlineNode])
 }
@@ -35,11 +35,11 @@ extension InlineNode {
     set {
       switch self {
       case .emphasis:
-        self = .emphasis(children: newValue)
+        self = .emphasis(newValue)
       case .strong:
-        self = .strong(children: newValue)
+        self = .strong(newValue)
       case .strikethrough:
-        self = .strikethrough(children: newValue)
+        self = .strikethrough(newValue)
       case .link(let destination, _):
         self = .link(destination: destination, children: newValue)
       case .image(let source, _):
